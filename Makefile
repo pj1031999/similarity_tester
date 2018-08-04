@@ -41,7 +41,7 @@ SYSTEM =	UNIX
 SUBSYSTEM =	SOLARIS
 
 # Locations
-DIR =		/home/dick
+DIR =		/usr/local
 BINDIR =	$(DIR)/bin.`$(DIR)/bin/arch`
 MAN1DIR =	$(DIR)/man/man1
 
@@ -58,23 +58,23 @@ NULLFILE =	/dev/null
 ################################################################
 # For MSDOS + MinGW
 
-SYSTEM =	MSDOS
-SUBSYSTEM =	MinGW
+#SYSTEM =	MSDOS
+#SUBSYSTEM =	MinGW
 
 # Locations
-DIR =		C:/BIN
-BINDIR =	C:/BIN
-MAN1DIR =	C:/BIN
+#DIR =		C:/BIN
+#BINDIR =	C:/BIN
+#MAN1DIR =	C:/BIN
 
 # File names
-NULLFILE =	nul
+#NULLFILE =	nul
 
 # Commands (cp required, since xcopy cannot handle forward slashes)
-COPY =		cp -p
-EXE =		.exe
-LEX =		flex
-LN =		ln
-ZIP =		zip -o
+#COPY =		cp -p
+#EXE =		.exe
+#LEX =		flex
+#LN =		ln
+#ZIP =		zip -o
 
 ################################################################
 # General, C compilation:
@@ -99,7 +99,7 @@ GROFF =		man2pdf
 
 # Compiling
 MEMORY =	-DMEMCHECK -DMEMCLOBBER
-CFLAGS =	$(VERSION) $(MEMORY) -O4 # -Dlint -DLIB # for all db active
+CFLAGS =	$(VERSION) $(MEMORY) -O3 # -Dlint -DLIB # for all db active
 LIBFLAGS =	#
 LINTFLAGS =	-Dlint_test $(MEMORY) -h# -X
 LOADFLAGS =	-s#			# strip symbol table

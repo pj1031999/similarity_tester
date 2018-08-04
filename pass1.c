@@ -125,19 +125,4 @@ Read_Input_Files(int argc, const char *argv[]) {
 		/* do one argument/file name */
 		read_file(argv[n],&Text[n]);
 	}
-
-	/* report total */
-	int sep_present = (Number_of_Texts != Number_of_New_Texts);
-	fprintf(Output_File, "Total input: ");
-	fprint_count(Output_File,
-		     (!sep_present ? Number_of_Texts : Number_of_Texts - 1),
-		     "file"
-	);
-	fprintf(Output_File, " (%d new, %d old), ",
-		Number_of_New_Texts,
-		(!sep_present ? 0 :  Number_of_Texts - Number_of_New_Texts - 1)
-	);
-	fprint_count(Output_File, Token_Array_Length() - 1, Token_Name);
-	fprintf(Output_File, "\n\n");
-	fflush(Output_File);
 }

@@ -50,6 +50,8 @@ set_option(char ch) {
 
 int
 is_set_option(int ch) {
+    if (ch == 'p' || ch == 'T')
+        return 1;
 	return options[ch];
 }
 

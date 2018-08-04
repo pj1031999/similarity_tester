@@ -34,7 +34,7 @@ const char *Version;
 /* Command-line parameters, with defaults */
 int Min_Run_Size = DEFAULT_MIN_RUN_SIZE;
 int Page_Width = DEFAULT_PAGE_WIDTH;
-int Threshold_Percentage = 1;
+int Threshold_Percentage = 0;
 FILE *Output_File;
 FILE *Debug_File;
 
@@ -178,8 +178,8 @@ main(int argc, const char *argv[]) {
 		fatal("bad page width");
 
 	if (is_set_option('p')) {
-		if ((Threshold_Percentage > 100) || (Threshold_Percentage <= 0))
-			fatal("threshold must be between 1 and 100");
+		if ((Threshold_Percentage > 100) || (Threshold_Percentage < 0))
+			fatal("threshold must be between 0 and 100");
 	}
 
 	if (output_name) {

@@ -176,11 +176,7 @@ print_perc_info(const struct match *m) {
 	int mp = (int)(match_percentage(m)*100.0 + 0.5 /* rounding */);
 
 	if (mp >= Threshold_Percentage) {
-		fprintf(Output_File,
-			"%s consists for %d %% of %s material\n",
-			m->ma_fname0, mp, m->ma_fname1
-		);
-		fflush(Output_File);
+        fprintf(stderr, "%d", mp);
 	}
 }
 
@@ -224,6 +220,11 @@ print_match_list(void) {
 #ifdef	DB_PERC
 	db_print_match_list("before listing match_list");
 #endif	/* DB_PERC */
+
+    if (!match_list) {
+      fprintf(Output_File, "0");
+      fflush(Output_File);
+    }
 
 	/* destroys the match list while printing */
 	while (match_list) {
